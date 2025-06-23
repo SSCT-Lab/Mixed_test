@@ -22,3 +22,24 @@ python fuzz_list.py dirs seed_list2.txt --has-model True --use-nc True --batch-s
     use-nc标识模型覆盖率使用Pt还是神经元覆盖率，使用神经元覆盖率为True，使用Pt为False
     batch-size是指一次运行pylot使用多少个种子
 
+## 种子说明
+请在txt文件中指定初始种子，需要为被测接口函数的每个参数指定初始值在txt文件中，一个参数占一行，并且是 **key=value** 的形式。
+
+pylot测试的种子文件示例如下：
+```
+imgs=/home/lzq/experiment_datatset/fuzz_test_dataset/town1/obstacles_dataset_datax
+y=/home/lzq/experiment_datatset/fuzz_test_dataset/town1/obstacles_y.npy
+planning_label=/home/lzq/experiment_datatset/fuzz_test_dataset/town1/plannings/town1_obstacle/planning_rs_label_y.npy
+control_label=/home/lzq/experiment_datatset/fuzz_test_dataset/town1/controls/town1_obstacle/control_rs_label_y.npy
+perfect_depth_estimation=False
+perfect_segmentation=False
+log_detector_output=False
+log_lane_detection_camera=False
+log_traffic_light_detector_output=False
+```
+其中图片文件夹命名必须以_datax结尾，在种子构建时，会依次取文件夹中的一个图像与其它参数构成种子；
+对于标签类型的种子参数，参数名称请以y或者label结尾，在该项目中，感知模块标签命名为"y"，规划模块标签命名为"planning_label"，控制模块标签命名为"control_label"。
+
+
+
+
