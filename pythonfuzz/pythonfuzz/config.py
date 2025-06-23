@@ -37,3 +37,5 @@ FROM_WITCH_SEED = 'from_seed.json'
 EXCLUDE_FILE=['pid', 'coverage_decorator', 'lane', 'dependencies']
 
 COV_FILE_PATH = '/media/lzq/D/lzq/pylot_test/coverage_test'
+
+OUTPUT_DIR='/home/lzq/result/datas'
