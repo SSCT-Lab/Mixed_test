@@ -27,7 +27,7 @@ import traj_dist.distance as tdist
 
 from pythonfuzz.config import PREDICT_ERROR_SEED_PATH,COV_HTML_PATH, COV_REPORT_PATH, SEED_SAVE_PATH, ERROR_INFOS_DIR
 from pythonfuzz.config import CRASH_SEED_PATH,DATA_SAVE_PATH,PROJECT_ERROR_LOG, ITER_COV_REPORT_PATH,OB_TL_PREDICTIONS_NPYS
-from pythonfuzz.config import CONTROL_PREDICTIONS_NPYS, PLANNING_PREDICTIONS_NPYS
+from pythonfuzz.config import CONTROL_PREDICTIONS_NPYS, PLANNING_PREDICTIONS_NPYS, OUTPUT_DIR
 
 
 from pythonfuzz.Coverages.LineCoverage import LineCoverage
@@ -572,7 +572,7 @@ class Fuzzer(object):
 
     def start(self):
         recreate_folder()
-        os.makedirs('/home/lzq/result/datas', exist_ok=True)
+        os.makedirs(f'{OUTPUT_DIR}', exist_ok=True)
         try:
             if os.path.exists(ERROR_INFOS_DIR):
                 shutil.rmtree(ERROR_INFOS_DIR)
@@ -852,7 +852,7 @@ class Fuzzer(object):
                             'pnac_map': self.pnac_maps,'line_status_vector_maps':self.line_status_vector_maps,
                             'cur_line_status_vector_maps':self.cur_line_status_vector_maps,
                             'seed_parents': self.seed_parents, 'cur_seed_errors': self.cur_seed_errors}
-                        with open(f'/home/lzq/result/datas/{self._total_executions}.json', "w", encoding="utf-8") as f:
+                        with open(f'{OUTPUT_DIR}/{self._total_executions}.json', "w", encoding="utf-8") as f:
                             json.dump(m, f, ensure_ascii=False, indent=4)
                     
                     
@@ -982,7 +982,7 @@ class Fuzzer(object):
                             'pnac_map': self.pnac_maps,'line_status_vector_maps':self.line_status_vector_maps,
                             'cur_line_status_vector_maps':self.cur_line_status_vector_maps,
                             'seed_parents': self.seed_parents, 'cur_seed_errors':self.cur_seed_errors}
-                    with open(f'/home/lzq/result/datas/{self._total_executions}.json', "w", encoding="utf-8") as f:
+                    with open(f'{OUTPUT_DIR}/{self._total_executions}.json', "w", encoding="utf-8") as f:
                         json.dump(m, f, ensure_ascii=False, indent=4)
                 
 
