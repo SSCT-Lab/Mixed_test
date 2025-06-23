@@ -60,6 +60,14 @@ log_traffic_light_detector_output=False
 其中图片文件夹命名必须以_datax结尾，在种子构建时，会依次取文件夹中的一个图像与其它参数构成种子；
 对于标签类型的种子参数，参数名称请以y或者label结尾，在该项目中，感知模块标签命名为"y"，规划模块标签命名为"planning_label"，控制模块标签命名为"control_label"。
 
+# 结果
+1. 最终的实验结果信息被存于OUTPUT_DIR中，包含迭代轮次、行覆盖率、神经元覆盖率、Global Weight、Path-Neuron、系统错误、感知错误、规划错误、控制错误、感知输出ious、规划输出tdist、控制输出steer_diff、行覆盖向量、神经元覆盖向量、Path-Neuron覆盖map、行覆盖map等信息；
+2. LOCAL_SEED_POOL 存储种子池中的变异种子；
+3. ERROR_INFOS_DIR 记录每轮迭代的具体报错信息；
+4. ERROR_SEEDS_VECTOR 记录报错轮次的覆盖向量；
+5. COV_REPORT_PATH 记录代码行覆盖报告；
+6. COV_HTML_PATH 记录代码行覆盖html报告详细信息；
+7. CRASH_SEED_PATH、PREDICT_ERROR_SEED_PATH、PLANNING_ERROR_SEED_PATH、CONTROL_ERROR_SEED_PATH分别记录触发系统、感知、规划、控制错误的种子信息。
 
-
+**以上地址变量均在pythonfuzz/pythonfuzz/config.py中设置**
 
