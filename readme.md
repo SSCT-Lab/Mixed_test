@@ -71,3 +71,5 @@ log_traffic_light_detector_output=False
 
 **以上地址变量均在pythonfuzz/pythonfuzz/config.py中设置**
 
+8. tmp/error_result.py与tmp/coverage_result.py中根据OUTPUT_DIR中的实验结果画图。
+
